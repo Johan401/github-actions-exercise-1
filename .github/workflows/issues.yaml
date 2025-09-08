@@ -1,0 +1,17 @@
+name: Issues
+on:
+  issues:
+    types: [opened, reopened, closed]
+jobs:
+  issue-label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print issue
+        run: |
+          echo "Issue opened: ${{ github.event.issue.title }}"
+          echo "Issue body: ${{ github.event.issue.body }}"
+          echo "Issue number: ${{ github.event.issue.number }}"
+          echo "Issue url: ${{ github.event.issue.html_url }}"
+          echo "Issue state: ${{ github.event.issue.state }}"
+          echo "Issue locked: ${{ github.event.issue.locked }}"
+          echo "Issue locked by: ${{ github.event.issue.locked_by }}"   
